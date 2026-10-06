@@ -1,0 +1,702 @@
+/* HEADER */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: var(--header-height);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 30px;
+
+    box-sizing: border-box;
+
+    border-bottom: 2px solid rgb(92, 8, 8);
+
+    background-color: var(--color-bg-light);
+
+    z-index: 999;
+
+    box-shadow:
+        0 3px 10px rgba(149, 31, 31, 0.1);
+
+    transition:
+        background 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.5s ease,
+        box-shadow 0.5s ease,
+        border-color 0.5s ease;
+
+    flex-wrap: wrap;
+
+    animation:
+        headerEnter
+        0.7s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    will-change: transform, opacity;
+}
+
+
+/* DARK MODE HEADER */
+
+.app.dark header {
+    background-color: var(--color-bg-dark);
+
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.5);
+
+    border-bottom-color:
+        rgba(255, 77, 77, 0.5);
+}
+
+
+/* LOGO */
+
+header .logo {
+    position: relative;
+
+    flex-shrink: 0;
+
+    animation:
+        logoEnter
+        0.8s
+        0.15s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+
+/* Logo title */
+
+header .logo h1 {
+    font-size: 1.5rem;
+
+    text-transform: capitalize;
+
+    color: #ff4d4d;
+
+    margin: 10px 0;
+
+    text-align: center;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.3s ease,
+        text-shadow 0.4s ease;
+}
+
+
+/* Logo hover */
+
+header .logo h1:hover {
+    transform:
+        scale(1.05)
+        translateY(-2px);
+
+    color: #ff6e6e;
+
+    text-shadow:
+        0 0 15px rgba(255, 77, 77, 0.5),
+        0 0 30px rgba(255, 77, 77, 0.2);
+}
+
+
+/* HEADER CONTROLS */
+
+header .header-controls {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    animation:
+        controlsEnter
+        0.8s
+        0.25s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+
+/* SEARCH INPUT */
+
+header .header-controls input[type="text"] {
+    width: 220px;
+
+    max-width: 100%;
+
+    padding: 10px 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+
+    outline: none;
+
+    font-size: 0.95rem;
+
+    background: white;
+
+    transition:
+        all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* Search focus */
+
+header .header-controls input[type="text"]:focus {
+    border-color: var(--color-accent);
+
+    box-shadow:
+        0 0 8px rgba(255, 77, 77, 0.2),
+        0 0 20px rgba(255, 77, 77, 0.1);
+
+    transform:
+        translateY(-2px)
+        scale(1.02);
+}
+
+
+/* Search hover */
+
+header .header-controls input[type="text"]:hover {
+    border-color: var(--color-accent);
+
+    box-shadow:
+        0 0 10px rgba(255, 77, 77, 0.12);
+}
+
+
+/* SELECT */
+
+header .header-controls select {
+    min-width: 150px;
+
+    max-width: 100%;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+
+    outline: none;
+
+    background: white;
+
+    color: #222;
+
+    font-size: 0.95rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Select hover */
+
+header .header-controls select:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--color-accent);
+
+    box-shadow:
+        0 5px 15px rgba(255, 77, 77, 0.15);
+}
+
+
+/* Select focus */
+
+header .header-controls select:focus {
+    border-color: var(--color-accent);
+
+    box-shadow:
+        0 0 10px rgba(255, 77, 77, 0.2);
+}
+
+
+/* DARK MODE SELECT */
+
+.app.dark header .header-controls select,
+.app.dark header .header-controls input[type="text"] {
+    background: #1e1e1e;
+
+    color: white;
+
+    border-color: #444;
+}
+
+
+/* DARK MODE LABEL */
+
+header .header-controls label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Label hover */
+
+header .header-controls label:hover {
+    color: var(--color-accent);
+
+    transform: translateY(-2px);
+}
+
+
+/* CHECKBOX */
+
+header .header-controls input[type="checkbox"] {
+    width: 18px;
+
+    height: 18px;
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    accent-color: var(--color-accent);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* Checkbox hover */
+
+header .header-controls input[type="checkbox"]:hover {
+    transform: scale(1.15);
+}
+
+
+/* HEADER ENTRANCE ANIMATION */
+
+@keyframes headerEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-40px);
+
+        filter: blur(6px);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translateY(3px);
+
+        filter: blur(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter: blur(0);
+    }
+}
+
+
+/* LOGO ENTRANCE */
+
+@keyframes logoEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-40px)
+            scale(0.85);
+
+        filter: blur(5px);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translateX(3px)
+            scale(1.02);
+
+        filter: blur(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* CONTROLS ENTRANCE */
+
+@keyframes controlsEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(40px);
+
+        filter: blur(5px);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translateX(-3px);
+
+        filter: blur(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+        filter: blur(0);
+    }
+}
+
+
+/* LARGE DESKTOP 1400px+ */
+
+@media (min-width: 1400px) {
+
+    header {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    header .logo h1 {
+        font-size: 1.7rem;
+    }
+
+    header .header-controls {
+        gap: 18px;
+    }
+
+    header .header-controls input[type="text"] {
+        width: 260px;
+    }
+
+    header .header-controls select {
+        min-width: 170px;
+    }
+}
+
+
+/* DESKTOP / LAPTOP 1000px - 1399px */
+
+@media (min-width: 1000px) and (max-width: 1399px) {
+
+    header {
+        padding: 15px 30px;
+    }
+
+    header .header-controls {
+        gap: 12px;
+    }
+
+    header .header-controls input[type="text"] {
+        width: 200px;
+    }
+}
+
+
+/* TABLET 701px - 999px */
+
+@media (min-width: 701px) and (max-width: 999px) {
+
+    header {
+        height: auto;
+
+        min-height: var(--header-height);
+
+        padding: 12px 20px;
+
+        gap: 12px;
+    }
+
+    header .logo h1 {
+        font-size: 1.35rem;
+    }
+
+    header .header-controls {
+        gap: 10px;
+
+        justify-content: flex-end;
+    }
+
+    header .header-controls input[type="text"] {
+        width: 170px;
+    }
+
+    header .header-controls select {
+        min-width: 130px;
+
+        padding: 9px 10px;
+    }
+
+    header .header-controls label {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* MOBILE 481px - 700px */
+
+@media (min-width: 481px) and (max-width: 700px) {
+
+    header {
+        position: fixed;
+
+        height: auto;
+
+        min-height: var(--header-height);
+
+        padding: 12px 15px;
+
+        justify-content: center;
+
+        gap: 5px;
+    }
+
+    header .logo {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+    header .logo h1 {
+        font-size: 1.3rem;
+
+        margin: 5px 0;
+    }
+
+    header .header-controls {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+    header .header-controls input[type="text"] {
+        width: 200px;
+
+        padding: 9px 12px;
+    }
+
+    header .header-controls select {
+        min-width: 130px;
+
+        padding: 9px 10px;
+    }
+
+    header .header-controls label {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* SMALL MOBILE 361px - 480px */
+
+@media (min-width: 361px) and (max-width: 480px) {
+
+    header {
+        height: auto;
+
+        min-height: var(--header-height);
+
+        padding: 10px 12px;
+
+        justify-content: center;
+
+        gap: 6px;
+    }
+
+    header .logo {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+    header .logo h1 {
+        font-size: 1.25rem;
+
+        margin: 4px 0;
+    }
+
+    header .header-controls {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 7px;
+    }
+
+    header .header-controls input[type="text"] {
+        width: 100%;
+
+        max-width: 220px;
+
+        padding: 9px 11px;
+
+        font-size: 0.9rem;
+    }
+
+    header .header-controls select {
+        width: 100%;
+
+        max-width: 220px;
+
+        min-width: 0;
+
+        padding: 9px 10px;
+
+        font-size: 0.9rem;
+    }
+
+    header .header-controls label {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* VERY SMALL MOBILE 360px AND BELOW */
+
+@media (max-width: 360px) {
+
+    header {
+        height: auto;
+
+        min-height: var(--header-height);
+
+        padding: 8px 10px;
+
+        justify-content: center;
+
+        gap: 4px;
+    }
+
+    header .logo {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+    header .logo h1 {
+        font-size: 1.15rem;
+
+        margin: 3px 0;
+    }
+
+    header .header-controls {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: stretch;
+
+        gap: 7px;
+    }
+
+    header .header-controls input[type="text"],
+    header .header-controls select {
+        width: 100%;
+
+        max-width: none;
+
+        min-width: 0;
+
+        box-sizing: border-box;
+
+        padding: 8px 10px;
+
+        font-size: 0.85rem;
+    }
+
+    header .header-controls label {
+        justify-content: center;
+
+        font-size: 0.8rem;
+    }
+}
+
+
+/* REDUCE MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    header,
+    header .logo,
+    header .header-controls {
+        animation: none;
+    }
+
+    header .logo h1,
+    header .header-controls input,
+    header .header-controls select,
+    header .header-controls label,
+    header .header-controls input[type="checkbox"] {
+        transition: none;
+    }
+}

@@ -1,0 +1,313 @@
+/* INDIVIDUAL MOVIE CARD */
+
+.movie-card {
+    width: 200px;
+
+    background-color: var(--color-card-light);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-light);
+
+    transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.4s ease;
+
+    /* Prevent shrinking inside grid */
+    flex-shrink: 0;
+}
+
+
+/* MOVIE CARD - DARK MODE */
+
+.app.dark .movie-card {
+    background-color: var(--color-card-dark);
+
+    box-shadow: var(--shadow-dark);
+}
+
+
+/* MOVIE POSTER */
+
+.movie-card img {
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-bottom: 3px solid var(--color-accent);
+
+    border-radius: 12px 12px 0 0;
+
+    transition:
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.4s ease;
+}
+
+
+/* MOVIE POSTER HOVER */
+
+.movie-card:hover img {
+    transform:
+        scale(1.05);
+
+    filter:
+        brightness(1.08);
+}
+
+
+/* MOVIE CARD HOVER */
+
+.movie-card:hover {
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* MOVIE TITLE */
+
+.movie-card h3 {
+    margin: 12px 0 5px;
+
+    padding: 0 10px;
+
+    font-size: 1.15rem;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    /* Prevent very long titles breaking layout */
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* MOVIE RATING */
+
+.movie-card p {
+    margin-bottom: 12px;
+
+    padding: 0 10px;
+
+    font-size: 0.9rem;
+
+    color: #888;
+}
+
+
+/* MOVIE RATING - DARK MODE */
+
+.app.dark .movie-card p {
+    color: #ccc;
+}
+
+
+/* LARGE DESKTOP 1400px +*/
+
+@media (min-width: 1400px) {
+
+    .movie-card {
+        width: 220px;
+    }
+
+    .movie-card img {
+        height: 330px;
+    }
+
+    .movie-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* DESKTOP / LAPTOP 1000px - 1399px */
+
+@media (min-width: 1000px) and (max-width: 1399px) {
+
+    .movie-card {
+        width: 200px;
+    }
+
+    .movie-card img {
+        height: 300px;
+    }
+}
+
+
+/* TABLET 701px - 999px */
+
+@media (min-width: 701px) and (max-width: 999px) {
+
+    .movie-card {
+        width: 180px;
+    }
+
+    .movie-card img {
+        height: 270px;
+    }
+
+    .movie-card h3 {
+        font-size: 1.05rem;
+    }
+
+    .movie-card p {
+        font-size: 0.85rem;
+    }
+
+    .movie-card:hover {
+        transform:
+            translateY(-6px);
+    }
+}
+
+
+/* MOBILE 481px - 700px */
+
+@media (min-width: 481px) and (max-width: 700px) {
+
+    .movie-card {
+        width: 170px;
+    }
+
+    .movie-card img {
+        height: 255px;
+    }
+
+    .movie-card h3 {
+        font-size: 1rem;
+
+        margin-top: 10px;
+    }
+
+    .movie-card p {
+        font-size: 0.82rem;
+
+        margin-bottom: 10px;
+    }
+
+    .movie-card:hover {
+        transform:
+            translateY(-5px);
+    }
+}
+
+
+/* SMALL MOBILE 361px - 480px */
+
+@media (min-width: 361px) and (max-width: 480px) {
+
+    .movie-card {
+        width: 150px;
+
+        border-radius: 13px;
+    }
+
+    .movie-card img {
+        height: 225px;
+
+        border-radius: 10px 10px 0 0;
+    }
+
+    .movie-card h3 {
+        font-size: 0.95rem;
+
+        margin:
+            9px 0 4px;
+
+        padding:
+            0 7px;
+    }
+
+    .movie-card p {
+        font-size: 0.8rem;
+
+        margin-bottom: 9px;
+
+        padding: 0 7px;
+    }
+
+    .movie-card:hover {
+        transform:
+            translateY(-4px);
+    }
+}
+
+
+/* VERY SMALL MOBILE 360px AND BELOW */
+
+@media (max-width: 360px) {
+
+    .movie-card {
+        width: 135px;
+
+        border-radius: 12px;
+    }
+
+    .movie-card img {
+        height: 202px;
+
+        border-radius: 9px 9px 0 0;
+    }
+
+    .movie-card h3 {
+        font-size: 0.9rem;
+
+        margin:
+            8px 0 4px;
+
+        padding:
+            0 6px;
+    }
+
+    .movie-card p {
+        font-size: 0.75rem;
+
+        margin-bottom: 8px;
+
+        padding: 0 6px;
+    }
+
+    .movie-card:hover {
+        transform:
+            translateY(-3px);
+    }
+}
+
+
+/* TOUCH DEVICES */
+
+@media (hover: none) {
+
+    .movie-card:hover {
+        transform: none;
+
+        box-shadow: var(--shadow-light);
+    }
+
+    .movie-card:hover img {
+        transform: none;
+
+        filter: none;
+    }
+
+    .app.dark .movie-card:hover {
+        box-shadow: var(--shadow-dark);
+    }
+}
